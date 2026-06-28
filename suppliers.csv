@@ -1,0 +1,26 @@
+supplier_id,supplier_name,region,default_shipping_mode,status,lead_time_category,min_order_qty,contract_start_date
+200856,Unilever Global Markets,UK,Sea,active,long,400,2011-01-24
+200345,Procter & Gamble EMEA,DE,Sea,active,long,400,2014-04-08
+200983,Nestle Consumer Products,MY,Land,active,short,100,2012-12-04
+200099,Samsung Electronics,KR,Sea,active,long,400,2018-02-19
+200271,LG Electronics,KR,Sea,active,long,400,2016-01-01
+200160,Philips Domestic Appliances,NL,Sea,active,long,400,2011-04-08
+200924,Sony Lifestyle Products,JP,Sea,active,medium,200,2018-10-01
+200485,IKEA Home Furnishings,SE,Sea,active,long,400,2018-04-23
+200139,L'Oreal Beauty Distribution,FR,Air,active,long,400,2018-07-08
+200889,Johnson & Johnson Consumer,US,Air,active,long,400,2017-10-09
+200384,Reckitt Benckiser Hygiene,UK,Sea,active,long,400,2010-03-23
+200991,Nike Retail Partners,US,Air,active,long,400,2016-06-09
+200769,Adidas Global Sourcing,DE,Air,active,long,400,2012-04-25
+200232,Colgate-Palmolive Personal Care,US,Sea,active,long,400,2015-02-03
+200439,PepsiCo Snacks International,US,Sea,active,long,400,2016-02-12
+200899,Mondelez Grocery APAC,AU,Sea,active,long,400,2015-10-09
+200009,Shiseido Consumer Products,JP,Air,active,medium,200,2010-12-15
+200231,Kao Home & Personal Care,JP,Sea,active,medium,200,2018-02-13
+200601,Kimberly-Clark Hygiene,US,Sea,active,long,400,2011-09-10
+200778,Danone Beverages SEA,FR,Sea,active,long,400,2019-06-19
+200112,Decathlon Sports Gear,FR,Sea,active,long,400,2013-12-03
+200828,H&M Home Textiles,SE,Sea,active,long,400,2010-11-08
+200914,Xiaomi Smart Devices,CN,Rail,active,medium,200,2014-02-28
+200090,Anker Innovations Electronics,CN,Sea,active,medium,200,2013-02-13
+200782,Puma Sportswear Distribution,DE,Air,active,long,400,2014-08-21
