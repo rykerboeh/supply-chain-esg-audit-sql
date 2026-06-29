@@ -26,11 +26,16 @@ This project aims to uncover which variables have the highest correlation with c
 ## Repository Structure
 ```text
 ├── data/
-│   ├── raw/                        # Source Kaggle data
-│       └── telco_churn_data.csv
-├── notebooks/                      # Data modeling & analytics
-│   └── telco_churn_analysis.ipynb
-├── requirements.txt                # Enforces reproducible Python execution environment
+│   ├── raw/                        
+│       └── products.csv            # Source Kaggle product data
+│       └── purchase_orders.csv     # Source Kaggle purchase order data
+│       └── suppliers.csv           # Source Kaggle supplier data
+│       └── sustainability_audits   # Synthetic data for audit touchpoint
+├── SQL/                            # Data modeling & analytics
+│   └── 01_data_creation_queries.sql            # Defines table schemas for raw data import
+│   └── 02_baseline_compliance_queries          # Basic supplier metrics and current compliance standing
+│   └── 03_financial_liability_queries.sql      # Explores concentration points of organizational financial liability
+│   └── 04_freight_impact_queries.sql           # Explore freight impact of poor performing suppliers
 └── README.md                       # Master project documentation
 ```
 ---
