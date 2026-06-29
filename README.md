@@ -16,8 +16,8 @@ This project centralizes multi-source supply chain data to map historical compli
 ---
 
 ## Tech Stack & Tools
-* **Database Engine & Core Language: SQL (PostgreSQL / ANSI Compliant)
-* **Advanced Relational Modeling: Window Functions (LEAD(), ROW_NUMBER()), Conditional Aggregation (CASE WHEN), Left Anti-Joins, Defensive Math Architecture (NULLIF(), Type-Casting)
+* Database Engine & Core Language: SQL (PostgreSQL / ANSI Compliant)
+* Advanced Relational Modeling: Window Functions (LEAD(), ROW_NUMBER()), Conditional Aggregation (CASE WHEN), Left Anti-Joins, Defensive Math Architecture (NULLIF(), Type-Casting)
 
 ---
 
@@ -41,31 +41,31 @@ This project centralizes multi-source supply chain data to map historical compli
 ## Data Pipeline Architecture
 
 ### Phase 1: Database Creation & Baseline Compliance (01_ & 02_)
-* **Raw data is structured into a clean, relational architecture to isolate current operational statuses and establish supplier performance trajectories:
+* Raw data is structured into a clean, relational architecture to isolate current operational statuses and establish supplier performance trajectories:
 
-* **Schema Enforcement (01_data_creation_queries.sql): Builds optimized tables for suppliers, products, purchase_orders, and sustainability_audits using strict primary and foreign key constraints.
+* Schema Enforcement (01_data_creation_queries.sql): Builds optimized tables for suppliers, products, purchase_orders, and sustainability_audits using strict primary and foreign key constraints.
 
-* **Descriptive Baselines (02_baseline_compliance_queries.sql): Tracks geographic vendor densities, contract lengths, and identifies current failing suppliers.
+* Descriptive Baselines (02_baseline_compliance_queries.sql): Tracks geographic vendor densities, contract lengths, and identifies current failing suppliers.
 
-* **Trajectory Tracking: Implements dual windowed CTEs (FIRST_VALUE / LAST_VALUE equivalents via ROW_NUMBER()) to classify metrics like waste diversion, water intensity, and labor safety as Improving, Worsening, or Stagnant.
+* Trajectory Tracking: Implements dual windowed CTEs (FIRST_VALUE / LAST_VALUE equivalents via ROW_NUMBER()) to classify metrics like waste diversion, water intensity, and labor safety as Improving, Worsening, or Stagnant.
 
 ### Phase 2: Financial Liability & Concentration Modeling (03_)
-* **The pipeline scales to quantify direct financial exposure using advanced historical data alignments:
+* The pipeline scales to quantify direct financial exposure using advanced historical data alignments:
 
-* **Temporal Effective-Dating: Utilizes the LEAD() window function to construct rolling audit validity windows (status_start_date to status_end_date). This dynamically pairs each historical purchase order with the exact compliance status of the vendor at the exact millisecond the transaction occurred.
+* Temporal Effective-Dating: Utilizes the LEAD() window function to construct rolling audit validity windows (status_start_date to status_end_date). This dynamically pairs each historical purchase order with the exact compliance status of the vendor at the exact millisecond the transaction occurred.
 
-* **Risk Concentration Layers: Aggregates total spend proportions across distinct dimensions (Product Categories, Country of Origin, and Specific Vendors) to identify what percentage of organizational capital is actively tied to high-risk partners.
+* Risk Concentration Layers: Aggregates total spend proportions across distinct dimensions (Product Categories, Country of Origin, and Specific Vendors) to identify what percentage of organizational capital is actively tied to high-risk partners.
 
 ### Phase 3: Operational Freight & Vulnerability Audits (04_)
-* **The final analytical layer connects sustainability performance to downstream logistical efficiency:
+* The final analytical layer connects sustainability performance to downstream logistical efficiency:
 
-* **Reliability Benchmarking: Correlates audit ratings with shipping fulfillment speeds (delivery_date - promised_delivery_date) to see if failing suppliers present higher supply chain delay risks.
+* Reliability Benchmarking: Correlates audit ratings with shipping fulfillment speeds (delivery_date - promised_delivery_date) to see if failing suppliers present higher supply chain delay risks.
 
-* **Logistical Footprint Analysis: Uses single-scan conditional aggregations (COUNT(CASE WHEN...) * 100.0 / NULLIF(...)) to evaluate whether failing vendors rely disproportionately on high-emissions transport (Air) vs. lower-emissions alternatives (Rail/Sea).
+* Logistical Footprint Analysis: Uses single-scan conditional aggregations (COUNT(CASE WHEN...) * 100.0 / NULLIF(...)) to evaluate whether failing vendors rely disproportionately on high-emissions transport (Air) vs. lower-emissions alternatives (Rail/Sea).
 
-* **Financial Penalty Tracking: Measures average freight and duty premium costs incurred across compliance tiers to pinpoint hidden operational overhead.
+* Financial Penalty Tracking: Measures average freight and duty premium costs incurred across compliance tiers to pinpoint hidden operational overhead.
 
-* **System Leak Isolation: Employs relational Left Anti-Joins (WHERE right_table.id IS NULL) to map active purchase volume flowing to legacy, un-audited suppliers.
+* System Leak Isolation: Employs relational Left Anti-Joins (WHERE right_table.id IS NULL) to map active purchase volume flowing to legacy, un-audited suppliers.
 
 ## How to Reproduce & Run Locally
 
@@ -76,12 +76,12 @@ cd supply-chain-esg-audit
 ```
 
 ### 2. Initialize the Relational Schema
-* **Execute sql/01_data_creation_queries.sql in your PostgreSQL instance to establish core table definitions.
+* Execute sql/01_data_creation_queries.sql in your PostgreSQL instance to establish core table definitions.
 
-* **Import your local operational CSV files into the corresponding database tables.
+* Import your local operational CSV files into the corresponding database tables.
 
 ### 3. Run the Analytics Pipeline
-* **Run files 02_ through 04_ sequentially to explore baseline behaviors, extract point-in-time risk concentrations, and isolate logistical efficiency gaps.
+* Run files 02_ through 04_ sequentially to explore baseline behaviors, extract point-in-time risk concentrations, and isolate logistical efficiency gaps.
 
 ---
 
